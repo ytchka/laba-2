@@ -1,0 +1,132 @@
+#include <iostream>
+using namespace std;
+void zadanie2();
+void zadanie3();
+void zadanie4();
+int main()
+{
+	int x, y, z;
+	cin >> x >> y >> z;
+	if (x % 2 == 1 && y % 2 == 1) {
+		cout << "condition is true" << endl;
+	}
+	else {
+		cout << "condition is false" << endl;
+	}
+	if (x < 20 && y >= 20 || x >= 20 && y < 20) {
+		cout << "condition is true" << endl;
+	}
+	else {
+		cout << "condition is false" << endl;
+	}
+	if ( x == 0 || y == 0) {
+		cout << "condition is true" << endl;
+	}
+	else {
+		cout << "condition is false" << endl;
+	}
+	if (x < 0 && y < 0 && z < 0) {
+		cout << "condition is true" << endl;
+	}
+	else {
+		cout << "condition is false" << endl;
+	}
+	if (x % 5 == 0 && y % 5 != 0 && z % 5 != 0 || x % 5 != 0 && y % 5 == 0 && z % 5 != 0 || x % 5 != 0 && y % 5 != 0 && z % 5 == 0) {
+		cout << "condition is true" << endl;
+	}
+	else {
+		cout << "condition is false" << endl;
+	}
+	if (x > 100 ||y>100||z>100) {
+		cout << "condition is true" << endl;
+	}
+	else {
+		cout << "condition is false" << endl;
+	}
+	zadanie2();
+	zadanie3();
+	zadanie4();
+	return 0;
+}
+void zadanie2()//zadanie 2
+{
+	using byte =unsigned char ;
+	pair<byte, byte>positionA;
+	pair<byte, byte>positionB;
+	int x1, x2, y1, y2;
+	cin >> x1>> y1;
+	cin >> x2 >> y2;
+	positionA.first = x1;
+	positionA.second = y1;
+	positionB.first = x2;
+	positionB.second = y2;
+	if (x1 > 8 || x1 < 1 || x2>8 || x2 < 1 || y1>8 || y1 < 1 || y2>8 || y2 < 1) {
+		cout << "Error 404" << endl;
+	}
+	else
+	{
+		if (positionA.first == positionB.first || positionA.second == positionB.second) {
+			cout << "Rook wons" << endl;
+		}
+		else {
+			cout << "Rock looses" << endl;
+		}
+		if (abs(positionB.first - positionA.first) == abs(positionB.second - positionA.second)) {
+			cout << "Bishop wons" << endl;
+		}
+		else {
+			cout << "Bishop looses" << endl;
+		}
+		if (abs(positionA.first - positionB.first) <= 1 && abs(positionA.second - positionB.second) <= 1) {
+			cout << "King  wons" << endl;
+		}
+		else {
+			cout << "King looses" << endl;
+		}
+		if ((positionB.first == positionA.first || positionA.second == positionB.second) || (abs(positionB.first - positionA.first) == abs(positionB.second - positionA.second))) {
+			cout << "Queen wons" << endl;
+		}
+		else {
+			cout << "Queen looses" << endl;
+		}
+		if (abs(positionB.first - positionA.first) == 1 && positionB.second - positionA.second == 1) {
+			cout << "Pawn can get point w/damage" << endl;
+		}
+		else {
+			cout << "Pawn looses" << endl;
+		}
+	}
+}
+void zadanie3()//zadanie 3;
+{
+	int N, i, K;
+	cin >> N;
+	for (i = 1; i <= 9; i++) {
+		K = N * i;
+		cout << N << "*" << i << "=" << K << endl;
+	}
+}
+void zadanie4()//zadanie 4;
+{
+	int a, b, i, pr1 = 1;
+	long long pr2 = 1, pr3 = 1, pr4 = 1;
+	cin >> a >> b;
+	for (i = 8; i <= 15; i++) {
+		pr1 = pr1 * i;
+	}
+	cout << pr1 << endl;
+	int a1 = a;
+	while (a <= 20) {
+		pr2 = pr2 * a;
+		a = a + 1;
+	}
+	cout << pr2 << endl;
+	for (i = 1; i <= b; i++) {
+		pr3 = pr3 * i;
+	}
+	cout << pr3 << endl;
+	for (i = a1; i <= b; i++) {
+		pr4 = pr4 * i;
+	}
+	cout << pr4 << endl;
+}
